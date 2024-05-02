@@ -4,8 +4,6 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        //System.out.print("May I have your name? ");
-        //String word = sc.nextLine();
 
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
@@ -20,5 +18,9 @@ public class App {
         System.out.print("May I have your name? ");
         String name = sc.nextLine();//Cli.scan();
         System.out.println("Hello, " + name + "!");
+        if(num.equals("2")){
+            Even game = new Even(name);
+            game.startGame();
+        }
     }
 }
