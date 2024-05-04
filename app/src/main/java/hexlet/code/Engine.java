@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class Engine {
+public final class Engine {
     private String name;
     private String numGame;
     private final int iter = 3;
@@ -35,7 +35,7 @@ public class Engine {
 
     private void startEven() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        int maxNum = 20;
+        var maxNum = 20;
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < iter; i++) {
             int rand = (int) (Math.random() * maxNum);
@@ -55,10 +55,11 @@ public class Engine {
         int number1;
         int number2;
         int resAnswer;
+        var maxNum = 20;
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < iter; i++) {
-            number1 = (int) (Math.random() * 20);
-            number2 = (int) (Math.random() * 20);
+            number1 = (int) (Math.random() * maxNum);
+            number2 = (int) (Math.random() * maxNum);
             resAnswer = Expr.expression(number1, number2, i);
             System.out.print("Your answer: ");
             int answer = sc.nextInt();
@@ -74,7 +75,7 @@ public class Engine {
         int number1;
         int number2;
         int resAnswer;
-        int maxNum = 100;
+        var maxNum = 100;
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < iter; i++) {
             number1 = (int) (Math.random() * maxNum);
