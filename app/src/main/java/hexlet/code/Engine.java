@@ -3,9 +3,9 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    String name;
-    String numGame;
-    final static int ITER = 3;
+    private String name;
+    private String numGame;
+    final int ITER = 3;
 
     public Engine(String name, String numGame) {
         this.name = name;
@@ -14,19 +14,31 @@ public class Engine {
 
     public void startGame() {
         switch (numGame) {
-            case "2" -> startEven();
-            case "3" -> startCalc();
-            case "4" -> startGCD();
-            case "5" -> startProgression();
-            case "6" -> startPrime();
+            case "2":
+                startEven();
+                break;
+            case "3":
+                startCalc();
+                break;
+            case "4":
+                startGCD();
+                break;
+            case "5":
+                startProgression();
+                break;
+            case "6":
+                startPrime();
+                break;
+            default:
         }
     }
 
     private void startEven() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        int maxNum = 20;
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < ITER; i++) {
-            int rand = (int) (Math.random() * 20);
+            int rand = (int) (Math.random() * maxNum);
             String resAnswer = rand % 2 == 0 ? "yes" : "no";
             System.out.println("Question: " + rand);
             System.out.print("Your answer: ");
@@ -62,10 +74,11 @@ public class Engine {
         int number1;
         int number2;
         int resAnswer;
+        int maxNum = 100;
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < ITER; i++) {
-            number1 = (int) (Math.random() * 100);
-            number2 = (int) (Math.random() * 100);
+            number1 = (int) (Math.random() * maxNum);
+            number2 = (int) (Math.random() * maxNum);
             resAnswer = Expr.returnGCD(number1, number2);
             System.out.print("Your answer: ");
             int answer = sc.nextInt();
@@ -91,7 +104,7 @@ public class Engine {
         System.out.println("Congratulations, " + name + "!");
     }
 
-    private void startPrime(){
+    private void startPrime() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         String resAnswer;
         Scanner sc = new Scanner(System.in);

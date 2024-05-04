@@ -1,4 +1,5 @@
 package hexlet.code;
+
 import java.util.Scanner;
 
 public class App {
@@ -6,7 +7,7 @@ public class App {
         startMenu();
     }
 
-    public static void startMenu(){
+    public static void startMenu() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Please enter the game number and press Enter.");
@@ -26,9 +27,9 @@ public class App {
         System.out.print("May I have your name? ");
         String name = sc.nextLine();
         System.out.println("Hello, " + name + "!");
-        if(numGame.equals("2") || numGame.equals("3")
+        if (numGame.equals("2") || numGame.equals("3")
                 || numGame.equals("4") || numGame.equals("5")
-                || numGame.equals("6")){
+                || numGame.equals("6")) {
             Engine game = new Engine(name, numGame);
             game.startGame();
         }
