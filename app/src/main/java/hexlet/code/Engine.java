@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Engine {
     String name;
     String numGame;
-    final int COUNT_OF_ITER = 3;
+    final static int ITER = 3;
 
     public Engine(String name, String numGame) {
         this.name = name;
@@ -13,67 +13,86 @@ public class Engine {
     }
 
     public void startGame() {
-        if (numGame.equals("2")) {
-            startEven();
-        } else if (numGame.equals("3")) {
-            startCalc();
+        switch (numGame) {
+            case "2" -> startEven();
+            case "3" -> startCalc();
+            case "4" -> startGCD();
         }
     }
 
-    public void startEven() {
+    private void startEven() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < COUNT_OF_ITER; i++) {
+        for (int i = 0; i < ITER; i++) {
             int rand = (int) (Math.random() * 20);
-            String isEven = rand % 2 == 0 ? "yes" : "no";
+            String resAnswer = rand % 2 == 0 ? "yes" : "no";
             System.out.println("Question: " + rand);
-            System.out.printf("Your answer: ");
+            System.out.print("Your answer: ");
             String answer = sc.nextLine();
-            if (!answer.equals(isEven)) {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + isEven + "'.");
-                System.out.printf("Let's try again, " + name + "!");
+            if(!checkAnswer(resAnswer, answer)){
                 return;
-            } else {
-                System.out.println("Correct!");
             }
         }
         System.out.println("Congratulations, " + name + "!");
     }
 
-    public void startCalc() {
+    private void startCalc() {
         System.out.println("What is the result of the expression?");
         int number1;
         int number2;
-        int resNum;
+        int resAnswer;
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < COUNT_OF_ITER; i++) {
+        for (int i = 0; i < ITER; i++) {
             number1 = (int) (Math.random() * 20);
             number2 = (int) (Math.random() * 20);
-            resNum = expression(number1, number2, i);
-            System.out.printf("Your answer: ");
+            resAnswer = Expr.expression(number1, number2, i);
+            System.out.print("Your answer: ");
             int answer = sc.nextInt();
-            if (resNum != answer) {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + resNum + "'.");
-                System.out.printf("Let's try again, " + name + "!");
+            if(!checkAnswer(resAnswer, answer)){
                 return;
-            } else {
-                System.out.println("Correct!");
             }
         }
         System.out.println("Congratulations, " + name + "!");
     }
 
-    private int expression(int number1, int number2, int i) {
-        if (i == 0) {
-            System.out.println("Question: " + number1 + " + " + number2);
-            return number1 + number2;
-        } else if (i == 1) {
-            System.out.println("Question: " + number1 + " * " + number2);
-            return number1 * number2;
-        } else if (i == 2) {
-            System.out.println("Question: " + number1 + " - " + number2);
-            return number1 - number2;
+    private void startGCD() {
+        System.out.println("Find the greatest common divisor of given numbers.");
+        int number1;
+        int number2;
+        int resAnswer;
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < ITER; i++) {
+            number1 = (int) (Math.random() * 100);
+            number2 = (int) (Math.random() * 100);
+            resAnswer = Expr.returnGCD(number1, number2);
+            System.out.print("Your answer: ");
+            int answer = sc.nextInt();
+            if(!checkAnswer(resAnswer, answer)){
+                return;
+            }
         }
-        return 0;
+        System.out.println("Congratulations, " + name + "!");
+    }
+
+    private boolean checkAnswer(int resAnswer, int answer){
+        if (resAnswer != answer) {
+            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + resAnswer + "'.");
+            System.out.print("Let's try again, " + name + "!");
+            return false;
+        } else {
+            System.out.println("Correct!");
+            return true;
+        }
+    }
+
+    private boolean checkAnswer(String resAnswer, String answer){
+        if (answer.equals(resAnswer)) {
+            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + resAnswer + "'.");
+            System.out.printf("Let's try again, " + name + "!");
+            return false;
+        } else {
+            System.out.println("Correct!");
+            return true;
+        }
     }
 }
