@@ -7,9 +7,9 @@ public class Engine {
     private String numGame;
     final int ITER = 3;
 
-    public Engine(String name, String numGame) {
-        this.name = name;
-        this.numGame = numGame;
+    public Engine(String userName, String numberOfGame) {
+        this.name = userName;
+        this.numGame = numberOfGame;
     }
 
     public void startGame() {
