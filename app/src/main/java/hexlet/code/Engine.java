@@ -120,7 +120,7 @@ public class Engine {
     private boolean checkAnswer(String resAnswer, String answer) {
         if (!answer.equals(resAnswer)) {
             System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + resAnswer + "'.");
-            System.out.printf("Let's try again, " + name + "!");
+            System.out.println("Let's try again, " + name + "!");
             return false;
         } else {
             System.out.println("Correct!");
