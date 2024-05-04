@@ -109,7 +109,7 @@ public class Engine {
     private boolean checkAnswer(int resAnswer, int answer) {
         if (resAnswer != answer) {
             System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + resAnswer + "'.");
-            System.out.print("Let's try again, " + name + "!");
+            System.out.println("Let's try again, " + name + "!");
             return false;
         } else {
             System.out.println("Correct!");

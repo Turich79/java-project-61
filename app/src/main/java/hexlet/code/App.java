@@ -18,13 +18,13 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        String numGame = sc.nextLine();//Cli.scan();
+        String numGame = sc.nextLine();
         if (numGame.equals("0")) {
             return;
         }
-        System.out.println("Welcome to the Brain Games!\n");
+        System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        String name = sc.nextLine();//Cli.scan();
+        String name = sc.nextLine();
         System.out.println("Hello, " + name + "!");
         if(numGame.equals("2") || numGame.equals("3")
                 || numGame.equals("4") || numGame.equals("5")
