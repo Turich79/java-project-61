@@ -18,6 +18,7 @@ public class Engine {
             case "3" -> startCalc();
             case "4" -> startGCD();
             case "5" -> startProgression();
+            case "6" -> startPrime();
         }
     }
 
@@ -90,6 +91,21 @@ public class Engine {
         System.out.println("Congratulations, " + name + "!");
     }
 
+    private void startPrime(){
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        String resAnswer;
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < ITER; i++) {
+            resAnswer = Expr.predPrimeNumber();
+            System.out.print("\nYour answer: ");
+            String answer = sc.nextLine();
+            if (!checkAnswer(resAnswer, answer)) {
+                return;
+            }
+        }
+        System.out.println("Congratulations, " + name + "!");
+    }
+
     private boolean checkAnswer(int resAnswer, int answer) {
         if (resAnswer != answer) {
             System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + resAnswer + "'.");
@@ -102,7 +118,7 @@ public class Engine {
     }
 
     private boolean checkAnswer(String resAnswer, String answer) {
-        if (answer.equals(resAnswer)) {
+        if (!answer.equals(resAnswer)) {
             System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + resAnswer + "'.");
             System.out.printf("Let's try again, " + name + "!");
             return false;

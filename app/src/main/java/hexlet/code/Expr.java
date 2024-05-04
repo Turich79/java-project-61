@@ -45,4 +45,24 @@ public class Expr {
         }
         return mas[hiddenNum];
     }
+
+    public static String predPrimeNumber() {
+        int number = (int) (Math.random() * 100 + 1);
+        System.out.print("Question: " + number);
+        if (isPrime(number)) {
+            return "yes";
+        } else {
+            return "no";
+        }
+    }
+
+    private static boolean isPrime(int number) {
+        int halfNumber = number / 2;
+        for (int i = 2; i <= halfNumber; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
