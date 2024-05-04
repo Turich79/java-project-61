@@ -14,6 +14,7 @@ public class App {
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
+        System.out.println("5 - Progression");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         String numGame = sc.nextLine();//Cli.scan();
@@ -24,7 +25,8 @@ public class App {
         System.out.print("May I have your name? ");
         String name = sc.nextLine();//Cli.scan();
         System.out.println("Hello, " + name + "!");
-        if(numGame.equals("2") || numGame.equals("3") || numGame.equals("4")){
+        if(numGame.equals("2") || numGame.equals("3")
+                || numGame.equals("4") || numGame.equals("5")){
             Engine game = new Engine(name, numGame);
             game.startGame();
         }

@@ -25,4 +25,24 @@ public class Expr {
         }
         return gcd;
     }
+
+    public static int getNumberOfProgression() {
+        final int COUNT = 10;
+        int[] mas = new int[COUNT];
+        int startNum = (int) (Math.random() * 10);
+        int hiddenNum = (int) (Math.random() * COUNT);
+        int increment = (int) (Math.random() * 5 + 1);
+        mas[0] = startNum;
+        var assSt = (hiddenNum == 0) ? ".." : mas[0];
+        System.out.print("Question: " + assSt);
+        for (int i = 1; i < COUNT; i++) {
+            mas[i] = mas[i - 1] + increment;
+            if (i == hiddenNum) {
+                System.out.print(" .. ");
+            } else {
+                System.out.print(" " + mas[i]);
+            }
+        }
+        return mas[hiddenNum];
+    }
 }
