@@ -38,7 +38,7 @@ public class Expr {
         for (int i = 1; i < COUNT; i++) {
             mas[i] = mas[i - 1] + increment;
             if (i == hiddenNum) {
-                System.out.print(" .. ");
+                System.out.print(" ..");
             } else {
                 System.out.print(" " + mas[i]);
             }
