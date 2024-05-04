@@ -27,10 +27,10 @@ public class Expr {
     }
 
     public static int getNumberOfProgression() {
-        var countOfCycle = 10;
+        final var countOfCycle = 10;
         int[] mas = new int[countOfCycle];
-        var maxOfNumber = 10;
-        var maxIncrement = 5;
+        final var maxOfNumber = 10;
+        final var maxIncrement = 5;
         int startNum = (int) (Math.random() * maxOfNumber);
         int hiddenNum = (int) (Math.random() * countOfCycle);
         int increment = (int) (Math.random() * maxIncrement + 1);
@@ -49,7 +49,7 @@ public class Expr {
     }
 
     public static String predPrimeNumber() {
-        var maxOfNumber = 100;
+        final var maxOfNumber = 100;
         int number = (int) (Math.random() * maxOfNumber + 1);
         System.out.print("Question: " + number);
         if (isPrime(number)) {

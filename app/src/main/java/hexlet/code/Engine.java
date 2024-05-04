@@ -35,7 +35,7 @@ public final class Engine {
 
     private void startEven() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        var maxNum = 20;
+        final var maxNum = 20;
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < iter; i++) {
             int rand = (int) (Math.random() * maxNum);
@@ -55,7 +55,7 @@ public final class Engine {
         int number1;
         int number2;
         int resAnswer;
-        var maxNum = 20;
+        final var maxNum = 20;
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < iter; i++) {
             number1 = (int) (Math.random() * maxNum);
@@ -75,7 +75,7 @@ public final class Engine {
         int number1;
         int number2;
         int resAnswer;
-        var maxNum = 100;
+        final var maxNum = 100;
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < iter; i++) {
             number1 = (int) (Math.random() * maxNum);
