@@ -27,3 +27,8 @@ tasks.test {
 tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
 }
+
+//checkstyle {
+//    project.ext.checkstyleVersion = '8.20'
+//    configFile = file("${rootDir.projectDir}/path/to/google_checks.xml")
+//}
