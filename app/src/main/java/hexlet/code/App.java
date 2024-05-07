@@ -1,5 +1,11 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
+
 import java.util.Scanner;
 
 public class App {
@@ -27,11 +33,29 @@ public class App {
         System.out.print("May I have your name? ");
         String name = sc.nextLine();
         System.out.println("Hello, " + name + "!");
-        if (numGame.equals("2") || numGame.equals("3")
-                || numGame.equals("4") || numGame.equals("5")
-                || numGame.equals("6")) {
-            Engine game = new Engine(name, numGame);
-            game.startGame();
+
+        switch (numGame) {
+            case "2":
+                Even even = new Even(name);
+                even.startGame();
+                break;
+            case "3":
+                Calc calc = new Calc(name);
+                calc.startGame();
+                break;
+            case "4":
+                GCD gcd = new GCD(name);
+                gcd.startGame();
+                break;
+            case "5":
+                Progression progression = new Progression(name);
+                progression.startGame();
+                break;
+            case "6":
+                Prime prime = new Prime(name);
+                prime.startGame();
+                break;
+            default:
         }
     }
 }
