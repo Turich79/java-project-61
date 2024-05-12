@@ -1,27 +1,21 @@
 package hexlet.code.games;
-
 import hexlet.code.Engine;
 import hexlet.code.Expr;
 
-public final class Even {
-    private String name;
-    private final int iter = 3;
-
-    public Even(String userName) {
-        this.name = userName;
+public class Even {
+    public static void startGame() {
+        String halloString = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        String[][] questions = new String[Engine.ITER][2];
+        final var maxNum = 20;
+        for (int i = 0; i < Engine.ITER; i++) {
+            int question = Expr.returnRand(maxNum);
+            questions[i][0] = Integer.toString(question);
+            questions[i][1] = isEven(question) ? "yes" : "no";
+        }
+        Engine.startEngine(halloString, questions);
     }
 
-    public void startGame() {
-        String halloString = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[] questions = new String[iter];
-        String[] rightAnswers = new String[iter];
-        final var maxNum = 20;
-        for (int i = 0; i < iter; i++) {
-            int question = Expr.returnRand(maxNum);
-            questions[i] = Integer.toString(question);
-            rightAnswers[i] = question % 2 == 0 ? "yes" : "no";
-        }
-        Engine engine = new Engine(name);
-        engine.startEngine(halloString, questions, rightAnswers);
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }

@@ -1,38 +1,36 @@
 package hexlet.code;
-
 import java.util.Scanner;
 
 public final class Engine {
-    private String name;
-    private final int iter = 3;
+    private static String name;
+    public static final int ITER = 3;
 
-    public Engine(final String userName) {
-        this.name = userName;
-    }
-
-    public void startEngine(String halloString, String[] questions, String[] rightAnswers) {
-        System.out.println(halloString);
+    public static void startEngine(String halloString, String[][] questions) {
+        greet();
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < iter; i++) {
-            System.out.println("Question: " + questions[i]);
+
+        System.out.println(halloString);
+        for (int i = 0; i < ITER; i++) {
+            System.out.println("Question: " + questions[i][0]);
             System.out.print("Your answer: ");
             String answer = sc.nextLine();
-
-            if (incorrectAnswer(rightAnswers[i], answer)) {
+            if (!answer.equals(questions[i][1])) {
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
+                        + questions[i][1] + "'.");
+                System.out.println("Let's try again, " + name + "!");
                 return;
+            } else {
+                System.out.println("Correct!");
             }
         }
         System.out.println("Congratulations, " + name + "!");
     }
 
-    private boolean incorrectAnswer(String resAnswer, String answer) {
-        if (!answer.equals(resAnswer)) {
-            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + resAnswer + "'.");
-            System.out.println("Let's try again, " + name + "!");
-            return true;
-        } else {
-            System.out.println("Correct!");
-            return false;
-        }
+    public static void greet() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nWelcome to the Brain Games!\n"
+                + "May I have your name? ");
+        name = sc.nextLine();
+        System.out.println("Hello, " + name + "!");
     }
 }
