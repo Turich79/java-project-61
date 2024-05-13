@@ -2,11 +2,10 @@ package hexlet.code;
 import java.util.Scanner;
 
 public final class Engine {
-    private static String name;
     public static final int ITER = 3;
 
     public static void startEngine(String halloString, String[][] questions) {
-        greet();
+        String name = greet();
         Scanner sc = new Scanner(System.in);
 
         System.out.println(halloString);
@@ -26,11 +25,14 @@ public final class Engine {
         System.out.println("Congratulations, " + name + "!");
     }
 
-    public static void greet() {
+    public static String greet() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("\nWelcome to the Brain Games!\n"
-                + "May I have your name? ");
-        name = sc.nextLine();
+        String hello = """
+                Welcome to the Brain Games!
+                May I have your name?""";
+        System.out.print("\n" + hello + " ");
+        String name = sc.nextLine();
         System.out.println("Hello, " + name + "!");
+        return name;
     }
 }

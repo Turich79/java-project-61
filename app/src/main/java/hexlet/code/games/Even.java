@@ -15,7 +15,7 @@ public class Even {
         Engine.startEngine(halloString, questions);
     }
 
-    public static boolean isEven(int number) {
+    private static boolean isEven(int number) {
         return number % 2 == 0;
     }
 }
