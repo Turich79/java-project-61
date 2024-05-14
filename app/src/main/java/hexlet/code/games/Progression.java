@@ -7,32 +7,39 @@ public final class Progression {
     public static void startGame() {
         String halloString = "What number is missing in the progression?";
         String[][] questions = new String[Engine.ITER][2];
+        final var countOfCycle = 10;
+        final var maxOfNumber = 10;
+        final var maxIncrement = 5;
+
         for (int i = 0; i < Engine.ITER; i++) {
-            getNumberOfProgression(questions, i);
+            int startNum = Expr.returnRand(maxOfNumber);
+            int increment = Expr.returnRand(maxIncrement) + 1;
+            int[] progression = getNumberOfProgression(startNum, increment, countOfCycle);
+            int hiddenNum = Expr.returnRand(countOfCycle);
+            String result = "";
+            String itStr = "";
+            for (int j = 0; j < countOfCycle; j++) {
+                if (j == hiddenNum) {
+                    itStr += " ..";
+                    result = Integer.toString(progression[j]);
+                } else {
+                    itStr = itStr + " " + progression[j];
+                }
+            }
+            questions[i][0] = itStr;
+            questions[i][1] = result;
         }
         Engine.startEngine(halloString, questions);
     }
 
-    private static void getNumberOfProgression(String[][] questions, int j) {
-        final var countOfCycle = 10;
-        final var maxOfNumber = 10;
-        final var maxIncrement = 5;
-        int startNum = Expr.returnRand(maxOfNumber);
-        int hiddenNum = Expr.returnRand(countOfCycle);
-        int result = (hiddenNum == 0) ? startNum : 0;
-        int increment = Expr.returnRand(maxIncrement) + 1;
+    private static int[] getNumberOfProgression(int startNum, int increment, int countOfCycle) {
         int tekNum = startNum;
-        String itStr = (hiddenNum == 0) ? ".." : "" + tekNum;
+        int[] tekProgression = new int[countOfCycle];
+        tekProgression[0] = tekNum;
         for (int i = 1; i < countOfCycle; i++) {
             tekNum += increment;
-            if (i == hiddenNum) {
-                result = tekNum;
-                itStr += " ..";
-            } else {
-                itStr += " " + tekNum;
-            }
+            tekProgression[i] = tekNum;
         }
-        questions[j][0] = itStr;
-        questions[j][1] = Integer.toString(result);
+        return tekProgression;
     }
 }
