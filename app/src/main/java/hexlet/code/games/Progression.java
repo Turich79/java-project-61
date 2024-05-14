@@ -26,7 +26,7 @@ public final class Progression {
                     itStr = itStr + " " + progression[j];
                 }
             }
-            questions[i][0] = itStr;
+            questions[i][0] = itStr.trim();
             questions[i][1] = result;
         }
         Engine.startEngine(halloString, questions);
