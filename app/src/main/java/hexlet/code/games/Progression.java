@@ -35,10 +35,8 @@ public final class Progression {
     private static int[] getNumberOfProgression(int startNum, int increment, int countOfCycle) {
         int tekNum = startNum;
         int[] tekProgression = new int[countOfCycle];
-        tekProgression[0] = tekNum;
-        for (int i = 1; i < countOfCycle; i++) {
-            tekNum += increment;
-            tekProgression[i] = tekNum;
+        for (int i = 0; i < countOfCycle; i++) {
+            tekProgression[i] = tekNum + i * increment;
         }
         return tekProgression;
     }
